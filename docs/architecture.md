@@ -152,6 +152,46 @@ Scheduler → Ingestion Service / Continuity Engine
 - The continuity summary ends with one concrete, shippable next step.
 - Drift detection forces a decision: update the goal, pause it, or commit to it.
 
+## Suggested Stack (MVP)
+This is a pragmatic stack optimized for fast iteration, OAuth integrations, and scheduled jobs.
+
+### Frontend
+- Next.js (App Router) + TypeScript
+- Tailwind CSS for fast UI iteration
+
+### Backend API
+- Node.js (NestJS or Next.js API routes)
+- REST JSON endpoints for MVP
+- Zod for request/response validation
+
+### Database
+- Postgres (managed, e.g. Supabase or Neon)
+- Prisma ORM for schema + migrations
+
+### Background Jobs
+- Upstash/QStash or a simple cron on the host
+- Separate ingestion worker for provider syncs
+
+### Auth + OAuth
+- GitHub + GitLab OAuth via Auth.js (NextAuth)
+- Encrypted token storage and refresh handling
+
+### AI Layer
+- OpenAI API (or compatible provider)
+- Prompt templates stored in code or DB for iteration
+
+### Observability
+- Basic logs + error tracking (Sentry)
+- Metrics: sync success rate, weekly review completion
+
+## Deployment
+- Vercel for web + API (fast iteration)
+- Separate worker on Fly.io/Render for ingestion if needed
+- Postgres managed service
+
+## Stack (low moving parts)
+- All-in-one: Next.js + Postgres + Vercel Cron
+
 ## AI Guardrails
 - Never claim “shipped” without evidence.
 - Detect “no activity” and suggest recalibration.
@@ -169,3 +209,10 @@ Scheduler → Ingestion Service / Continuity Engine
 - Weekly email recap with summary + next step.
 - Optional integrations: Linear, Notion, Trello (as evidence sources).
 - Provider rollout: GitLab first, then consider Bitbucket based on demand.
+
+## Enterprise Roadmap (B2B)
+- Team workspaces with shared repo access and role-based visibility.
+- Org-wide weekly digest: roll up summaries by team or product line.
+- Compliance-friendly audit trail: immutable weekly reviews.
+- SSO and org install flows for GitHub/GitLab.
+- Admin controls: repo allowlist, retention policies, export.

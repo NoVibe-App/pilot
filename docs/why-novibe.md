@@ -22,3 +22,9 @@ NoVibe.app exists to solve the continuity problem for solo and side-project deve
 
 ## The promise
 NoVibe.app helps you ship small, meaningful progress every week and keeps your project moving when motivation fades.
+
+## Enterprise value
+- **Reduces stalled initiatives.** Weekly evidence + next steps make drift visible early.
+- **Lightweight status signal.** Teams get concise, evidence‑backed progress without heavy PM overhead.
+- **Faster context transfer.** New engineers and managers can read a project’s continuity narrative quickly.
+- **Supports autonomy.** Keeps teams aligned without micromanagement.
