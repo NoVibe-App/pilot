@@ -2,7 +2,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, set the required environment variables:
+First, set the required environment variables. The GitHub/GitLab values are
+your OAuth app credentials for NoVibe (not the end user’s IDs):
 
 ```bash
 DATABASE_URL="postgresql://user:password@localhost:5432/novibe"
@@ -35,6 +36,15 @@ bun dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+## Mock mode (UI preview only)
+If you want to preview the UI without OAuth or a database, set:
+
+```bash
+NEXT_PUBLIC_MOCK_MODE="true"
+```
+
+This disables the SSO buttons and shows mock repo data in onboarding.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
